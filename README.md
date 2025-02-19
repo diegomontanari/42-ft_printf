@@ -1,4 +1,5 @@
-# 42-ft_printf
+# 42-ft_printf Step by step guide:
+If you want to get a clear idea of how the printf function works in C, this repo is for you. This is a 42 school project, for which I am required to follow a norm. I will walk through step by step how you too can create a copy of the printf function.
 # Creating the header file
 
 First of all we must define our header. With this project I understood better what the header guard was.
