@@ -2,7 +2,7 @@
 If you want to get a clear idea of how the printf function works in C, this repo is for you. This is a 42 school project, for which I am required to follow a norm. I will walk through step by step how you too can create a copy of the printf function. let's start.
 
 ![640px-Hokusai,_The_Underwave_off_Kanagawa](https://github.com/user-attachments/assets/014357e5-563b-43a7-af17-1ab5f908714a)
-# Creating the header file
+# 1) Creating the header file
 
 First of all we must define our header. With this project I understood better what the header guard was.
 
@@ -17,7 +17,7 @@ This technique is known as "header guard" and serves to protect the file from mu
 
 After that, I defined and called all the functions that I needed in the header.
 
-# Creating ft_printf()
+# 2) Creating ft_printf()
 
 This is the main function of the project. First of all, we connect the function to the header with `#include "ft_printf.h"`.
 
@@ -148,7 +148,7 @@ why are u x and X unsigned?
 In ft_printf, the format specifiers %u, %x, and %X are used to print unsigned integers. Here's why: %u prints an unsigned decimal integer. %x prints an unsigned hexadecimal integer in lowercase. %X prints an unsigned hexadecimal integer in uppercase. Unsigned integers are used for these specifiers because they represent non-negative numbers, making them suitable for displaying hexadecimal values and large positive numbers without the risk of negative values. 
 -----------------------
 
-# Creating the main.c file to test the program
+# 3) Creating the main.c file to test the program
 Creating the main.c file:
 
 Inside your project, create a file called main.c.
@@ -168,7 +168,7 @@ int main() {
     return 0;
 }
 ```
-# Creating the Makefile to automate compilation
+# 4) Creating the Makefile to automate compilation
 Creating the Makefile file:
 
 Inside your project, create a file called Makefile.
