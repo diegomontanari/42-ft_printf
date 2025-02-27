@@ -34,8 +34,8 @@ void	ft_specifiers(const char c, int*count, va_list args)
 
 int	ft_printf(const char *s, ...)
 {
-	va_list	args; # I declare my va_list
-	int		count; # need a counter to measure and return the number of chars printed, to emulate printf
+	va_list	args; // I declare my va_list
+	int		count; // need a counter to measure and return the number of chars printed, to emulate printf
 	count = 0;
 	va_start(args, s); 
 	while (*s)
@@ -46,7 +46,7 @@ int	ft_printf(const char *s, ...)
 			if (*s)
 				ft_specifiers(*s, &count, args); 
 		else
-			ft_print_char(*s, &count); # If I pass the value directly into other functions, any increment will only have a local scope, for this reason I need to pass the memory adress.
+			ft_print_char(*s, &count); // If I pass the value directly into other functions, any increment will only have a local scope, for this reason I need to pass the memory adress.
 		}
 		s++;
 	}
