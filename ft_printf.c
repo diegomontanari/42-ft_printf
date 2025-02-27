@@ -35,7 +35,7 @@ void	ft_specifiers(const char c, int*count, va_list args)
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
-	int		count;
+	int		count; # Restituisce il numero di quanti caratteri ho stampato, e aumenta il contatore a ogni caratteri. Ricorda che il valore di ritorno di printf sarebbe proprio count.
 
 	count = 0;
 	va_start(args, s);
