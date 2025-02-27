@@ -34,21 +34,20 @@ void	ft_specifiers(const char c, int*count, va_list args)
 
 int	ft_printf(const char *s, ...)
 {
-	va_list	args;
-	int		count; # Restituisce il numero di quanti caratteri ho stampato, e aumenta il contatore a ogni caratteri. Ricorda che il valore di ritorno di printf sarebbe proprio count.
-
+	va_list	args; # I declare my va_list
+	int		count; # I need a counter to measure and return the number of chars printed, to emulate printf
 	count = 0;
-	va_start(args, s);
+	va_start(args, s); 
 	while (*s)
 	{
 		if (*s == '%')
 		{
 			s++;
 			if (*s)
-				ft_specifiers(*s, &count, args);
-		}
+				ft_specifiers(*s, &count, args); 
 		else
-			ft_print_char(*s, &count);
+			ft_print_char(*s, &count); # If I pass the value directly into other functions, any increment will only have a local scope, for this reason I need to pass the memory adress.
+		}
 		s++;
 	}
 	va_end(args);
