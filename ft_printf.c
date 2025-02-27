@@ -35,7 +35,7 @@ void	ft_specifiers(const char c, int*count, va_list args)
 int	ft_printf(const char *s, ...)
 {
 	va_list	args; # I declare my va_list
-	int		count; # I need a counter to measure and return the number of chars printed, to emulate printf
+	int		count; # need a counter to measure and return the number of chars printed, to emulate printf
 	count = 0;
 	va_start(args, s); 
 	while (*s)
