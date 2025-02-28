@@ -27,7 +27,7 @@ void	ft_print_int(int nbr, int *count)
 		n = -nbr;
 		ft_print_char('-', count);
 	}
-	ft_print_nbr_base((unsigned long)n, "0123456789", count);
+	ft_print_nbr_base((unsigned long)n, "0123456789", count); // Once the minus is removed, I proceed with the decimal base
 }
 
 void	ft_print_uns_int(unsigned int nbr, int *count)
@@ -35,5 +35,5 @@ void	ft_print_uns_int(unsigned int nbr, int *count)
 	unsigned long	n;
 
 	n = nbr;
-	ft_print_nbr_base(n, "0123456789", count);
+	ft_print_nbr_base(n, "0123456789", count); // Same thing but the check of the sign is useless
 }
