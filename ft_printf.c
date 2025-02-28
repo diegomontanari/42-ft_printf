@@ -46,7 +46,7 @@ int	ft_printf(const char *s, ...)
 			if (*s)
 				ft_specifiers(*s, &count, args); 
 		else
-			ft_print_char(*s, &count); // If I pass the value directly into other functions, any increment will only have a local scope, for this reason I need to pass the memory adress.
+			ft_print_char(*s, &count); // If I pass the value directly into other functions, any increment will only have a local scope and count will not be recognized. By passing a pointer, changes affect the original variable (because the memory adress, "the cell" is one.)
 		}
 		s++;
 	}
