@@ -22,6 +22,6 @@ void	ft_print_str(const char *s, int *count)
 	{
 		len = ft_strlen(s);
 		write(1, s, len);
-		*count += len;
+		*count += len; // Increment the value pointed to by count by len to keep track of the total number of printed characters
 	}
 }
