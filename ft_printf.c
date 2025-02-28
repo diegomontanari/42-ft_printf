@@ -15,7 +15,7 @@
 void	ft_specifiers(const char c, int*count, va_list args)
 {
 	if (c == 'c')
-		ft_print_char(va_arg(args, int), count);
+		ft_print_char(va_arg(args, int), count); // va_arg 
 	else if (c == 's')
 		ft_print_str(va_arg(args, char *), count);
 	else if (c == 'd' || c == 'i')
@@ -44,7 +44,7 @@ int	ft_printf(const char *s, ...)
 		{
 			s++;
 			if (*s)
-				ft_specifiers(*s, &count, args); 
+				ft_specifiers(*s, &count, args); // args signals that the next argument is a variadic one, but since I'm just giving an argument on a function I'm calling I don't need to specify the type
 		else
 			ft_print_char(*s, &count); // If I pass the value directly into other functions, any increment will only have a local scope and count will not be recognized. By passing a pointer, changes affect the original variable (because the memory adress, "the cell" is one.)
 		}
