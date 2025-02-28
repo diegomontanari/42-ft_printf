@@ -21,8 +21,9 @@ OBJS = ${SRC:.c=.o}
 $(NAME): $(OBJS)
 		ar rcs ${NAME} ${OBJS}
 
-%.o: %.c # % is a wildcard that stands for "any sequence of ... (here: any file)
-		$(CC) $(CFLAGS) -c $< -o $@ # -c compiles without linking (why idk)
+# % is a wildcard, $< represents the prerequisite, $@ represents the target, so compile any .c in .o without linking (more info below)
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME) # All starts the flow and NAME creates the archive
 
@@ -46,4 +47,7 @@ re: fclean all
 # name as the targets exist.
 # make alone runs all because it is the first declared target that does not start with a . 
 # and is not a .PHONY.
+
+# Line 24 EXPLAINED:
+# % is a wildcard that stands for "any sequence of [element]"
 
