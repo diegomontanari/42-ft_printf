@@ -173,3 +173,120 @@ Creating the Makefile file:
 
 Inside your project, create a file called Makefile.
 Writing the compilation instructions in the Makefile:
+
+
+
+
+
+## Example of Recursion in print_nbr
+
+Recursion can be complex to understand at first, so here is an example of how the process works to print the number `5248`.
+
+### Execution Flow of the Function
+
+#### Initial Call:
+```c
+ft_print_nbr_base(5248, "0123456789ABCDEF", count);
+```
+- `nbr = 5248`
+- `base = "0123456789ABCDEF"`
+- `count` is a pointer to an integer initialized to `0`
+
+#### Calculating Base Length:
+```c
+len = ft_strlen(base);  // len = 16
+```
+
+#### First Condition:
+```c
+if (nbr == 0)
+```
+- `nbr` is not equal to `0`, so we move to the next condition.
+
+#### Second Condition:
+```c
+if (nbr >= len)
+```
+- `5248 >= 16`, so the function is called recursively:
+```c
+ft_print_nbr_base(5248 / 16, base, count);
+// Equivalent to:
+ft_print_nbr_base(328, base, count);
+```
+
+### Recursion:
+#### Recursive Call 1:
+```c
+ft_print_nbr_base(328, base, count);
+```
+- `nbr = 328`
+- `len = 16`
+- `328 >= 16`, so the function is called recursively:
+```c
+ft_print_nbr_base(328 / 16, base, count);
+// Equivalent to:
+ft_print_nbr_base(20, base, count);
+```
+
+#### Recursive Call 2:
+```c
+ft_print_nbr_base(20, base, count);
+```
+- `nbr = 20`
+- `len = 16`
+- `20 >= 16`, so the function is called recursively:
+```c
+ft_print_nbr_base(20 / 16, base, count);
+// Equivalent to:
+ft_print_nbr_base(1, base, count);
+```
+
+#### Recursive Call 3:
+```c
+ft_print_nbr_base(1, base, count);
+```
+- `nbr = 1`
+- `len = 16`
+- `1 < 16`, so we proceed to print the character:
+```c
+ft_print_char(base[1 % 16], count);
+// Equivalent to:
+ft_print_char('1', count);
+```
+
+### Returning from Recursive Calls:
+#### Recursive Call 2:
+```c
+ft_print_char(base[20 % 16], count);
+// Equivalent to:
+ft_print_char('4', count);
+```
+
+#### Recursive Call 1:
+```c
+ft_print_char(base[328 % 16], count);
+// Equivalent to:
+ft_print_char('8', count);
+```
+
+#### Initial Call:
+```c
+ft_print_char(base[5248 % 16], count);
+// Equivalent to:
+ft_print_char('0', count);
+```
+
+### Final Result:
+The number `5248` in base `16` (hexadecimal) is printed as `1480`.
+
+### Execution Flow Diagram:
+```c
+ft_print_nbr_base(5248, "0123456789ABCDEF", count)
+  -> ft_print_nbr_base(328, "0123456789ABCDEF", count)
+    -> ft_print_nbr_base(20, "0123456789ABCDEF", count)
+      -> ft_print_nbr_base(1, "0123456789ABCDEF", count)
+        -> ft_print_char('1', count)
+      -> ft_print_char('4', count)
+    -> ft_print_char('8', count)
+  -> ft_print_char('0', count)
+```
