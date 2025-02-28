@@ -37,7 +37,7 @@ int	ft_printf(const char *s, ...)
 	va_list	args; // I declare my va_list
 	int		count; // need a counter to measure and return the number of chars printed, to emulate printf
 	count = 0;
-	va_start(args, s); 
+	va_start(args, s); // s is a char and it's the last fixed argument
 	while (*s)
 	{
 		if (*s == '%')
