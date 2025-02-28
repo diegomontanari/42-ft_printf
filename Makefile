@@ -22,9 +22,9 @@ $(NAME): $(OBJS)
 		ar rcs ${NAME} ${OBJS}
 
 %.o: %.c # % is a wildcard that stands for "any sequence of ... (here: any file)
-		$(CC) $(CFLAGS) -c $< -o $@ # 
+		$(CC) $(CFLAGS) -c $< -o $@ # -c compiles without linking (why idk)
 
-all: $(NAME)
+all: $(NAME) # All starts the flow and NAME creates the archive
 
 clean:
 		$(RM) $(OBJS)
@@ -35,3 +35,15 @@ fclean:	clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# Makefile RECAP:
+# make runs all, which in turn creates libftprintf.a by compiling the .c files into .o 
+# and merging them into the executable (in this case, the archive). (It does nothing else and removes nothing.)
+# make clean removes only the .o files (compiled objects).
+# make fclean runs clean, then also removes the executable (in this case, the archive).
+# make re runs fclean (so it deletes everything) and then all to recompile from scratch.
+# .PHONY does not affect the execution order, it only serves to avoid issues if files with the same 
+# name as the targets exist.
+# make alone runs all because it is the first declared target that does not start with a . 
+# and is not a .PHONY.
+
