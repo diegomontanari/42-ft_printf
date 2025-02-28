@@ -21,7 +21,7 @@ OBJS = ${SRC:.c=.o}
 $(NAME): $(OBJS)
 		ar rcs ${NAME} ${OBJS}
 
-# % is a wildcard, $< represents the prerequisite, $@ represents the target, so compile any .c in .o without linking (more info below)
+# % is a wildcard, $< represents the prerequisite, $@ represents the target, -c means "no linking" so compile any .c in .o without linking (more info below)
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
